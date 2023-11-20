@@ -4,10 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>Document</title>
+    <style>
+
+        table{
+            display:flex;
+            justify-content: center;
+        }
+        .border-r{
+            border-radius: 30px;
+            padding: 20px;
+            margin-left: 13%;
+            width:70%;
+            align-items: center;
+        }
+        div span button{
+            margin: 12px 2px 12px 2px;
+        }
+        .hide{
+            display:none;
+        }
+    </style>
+
 </head>
 <body>
-    <div style="background-color: #a0d2eb;">
+    <div>
+        <span>
+            <button type="button" id="showArtReg">Artist Registration</button>
+            <button type="button" id="showArtSignIn">Artist Sign in </button>
+            <button type="button" id="showArtPassChainge">Artist password chainge</button>
+            <button type="button" id="showCustReg">Customer Registration</button>
+            <button type="button" id="showCustSignIn">Customer Sign in </button>
+            <button type="button" id="showCustPassChainge">Customer password chainge</button>     
+        </span>
+    </div>
+    <div style="background-color: #a0d2eb;" class="border-r">
         <p align="center">Registration of Artist.</p>
         <p align="center">(* Means mendetory to fill.)</p>
     <form>
@@ -44,7 +76,8 @@
             <tr></tr>
             <tr>
                 <td></td>
-                <td><button>Chainge Password</button></td>
+                <td><button>Sign up</button><button type="reset" id="aRegBtn">Clear</button></td>
+                
             </tr>
     
         </table>
@@ -52,7 +85,7 @@
     </div>
     <!-- Registration for Artist ends here-->
     <!-- Sign in for Artist starts here -->
-    <div style="background-color: #d0bdf4;">
+    <div style="background-color: #d0bdf4;" class="border-r">
         <p align="center">Sign in for Artist.</p>
         <p align="center">(* Means mendetory to fill.)</p>
     <form>
@@ -75,7 +108,7 @@
     </div>
     <!-- Sign in for Artist ends here-->
     <!--Chainged password for Artist-->
-    <div style="background-color: #a28089">
+    <div style="background-color: #a28089" class="border-r">
         <p align="center">Chainge password for Artist.</p>
         <p align="center">(* Means mendetory to fill.)</p>
     <form>
@@ -108,7 +141,7 @@
     <!--Chainged password block ends here-->
     
     <!-- Registreation of user starts here -->
-    <div style="background-color: #a0d2eb;">
+    <div style="background-color: #a0d2eb;" class="border-r">
         <p align="center">Registration of User.</p>
         <p align="center">(* Means mendetory to fill.)</p>
     <form>
@@ -163,7 +196,7 @@
     </div>
     <!--Sign up for user ends here -->
     <!--Sign  in user starts here-->
-    <div style="background-color: #a0d2eb;">
+    <div style="background-color: #d0bdf4;" class="border-r">
         <p align="center">Sign in for User.</p>
         <p align="center">(* Means mendetory to fill.)</p>
     <form>
@@ -187,7 +220,7 @@
     </div>
     <!-- Sign in of user ends here-->
     <!--Chainged password for User starts here-->
-    <div style="background-color: #a28089">
+    <div style="background-color: #a28089" class="border-r">
         <p align="center">Chainge password for User.</p>
         <p align="center">(* Means mendetory to fill.)</p>
     <form>
@@ -211,7 +244,8 @@
             </tr>
             <tr>
                 <td></td>
-                <td><button>Sign in</button></td>
+                <td><button>Password Chainge</button><button type="reset">Clear</button></td>
+
             </tr>
     
         </table>
