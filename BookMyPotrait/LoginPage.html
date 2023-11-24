@@ -35,6 +35,14 @@
             $('#divCustSignIn').addClass('hide');
             $('#divCustPassChainge').addClass('hide');
         }
+         $(document).ready(()=>{
+            hideAll();
+            $('#divArtReg').removeClass('hide');
+            $('#showArtSignIn').click(()=>{
+                hideAll();
+                $('#divArtSignIn').removeClass('hide');
+            })
+         })
 </script>
 </head>
 <body>
