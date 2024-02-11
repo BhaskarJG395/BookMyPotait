@@ -7,9 +7,9 @@ export default function HeadingAbout(){
     return(
         <div>        
             <div>
-                {/*Artist Book box will be here*/}
-                {/*User book will be here*/}
-                {/*Art showcase will be here*/}
+                <ArtistBook></ArtistBook>
+                <UserBook></UserBook>
+                <ArtShowcase></ArtShowcase>
                 <p>About this page will be here.</p>
             </div>
         </div>
