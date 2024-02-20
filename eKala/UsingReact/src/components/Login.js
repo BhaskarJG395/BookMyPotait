@@ -2,7 +2,54 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../css/login.css';
 export default function Login() {
-  return (
+  const [loginFormEmail, setEmail] = useState('');
+  const [loginFormPassword, setPassword] = useState('');
+  const [selectedRole, setSelectedRole] = useState('');
+
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
+  const handleRoleChange = (e) => setSelectedRole(e.target.value);
+  //checking email
+  function checkEmail() {
+    for (var u1 of users) {
+      if (u1.email === loginFormEmail) {
+        return u1.id;
+      }
+    }
+    return 0;
+  }
+  //checking password
+  function checkPassword(){
+    for( var u2 of users){
+      if(u2.password===loginFormPassword && u2.id===checkEmail()){
+        return true
+      }
+    }
+    return false;
+  }
+  const validate = (e) => {
+    e.preventDefault();
+    // Perform validation
+    if (checkEmail()) {
+      if (checkPassword()) {
+        if (selectedRole === 'user' || selectedRole === 'artist') {
+          // Validation successful
+          alert('Login successful!');
+          // Redirect or perform further actions here
+          e.target.submit();
+        } else {
+          alert('You have to choose a role: user or artist.');
+        }
+      } else {
+        alert('Password is wrong.');
+      }
+    } else {
+      alert('Email is wrong.');
+    }
+  };
+
+  
+return (
     <div className="login-out-container">
       <div className="container text-center">
         <div className="row">
