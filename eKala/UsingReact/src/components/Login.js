@@ -1,7 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../css/login.css';
+import UserService from '../services/UserService';
+
 export default function Login() {
+  //for backend
+  const [users,setUsers]=useState([]);
+  useEffect(()=>{
+    UserService.getAllUsers()
+    .then((result)=>{
+      console.log(result);
+      setUsers([...result.data])
+    })
+  },[])
+
+  //from the form
   const [loginFormEmail, setEmail] = useState('');
   const [loginFormPassword, setPassword] = useState('');
   const [selectedRole, setSelectedRole] = useState('');
@@ -13,7 +26,7 @@ export default function Login() {
   function checkEmail() {
     for (var u1 of users) {
       if (u1.email === loginFormEmail) {
-        return u1.id;
+        return u1.id;   
       }
     }
     return 0;
@@ -27,6 +40,7 @@ export default function Login() {
     }
     return false;
   }
+  
   const validate = (e) => {
     e.preventDefault();
     // Perform validation
@@ -48,32 +62,31 @@ export default function Login() {
     }
   };
 
-  
-return (
+  return (
     <div className="login-out-container">
       <div className="container text-center">
         <div className="row">
           <div className="col left-div-login">
             <h1><strong>Login here</strong></h1>
-            <form action="/"  className="login-form">
+            <form action="/"  className="login-form" onSubmit={validate}>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
                   Email address
                 </label>
-                <input type="email" className="form-control" id="email"  aria-describedby="emailHelp" required />
+                <input type="email" className="form-control" id="email" value={loginFormEmail} onChange={handleEmailChange} aria-describedby="emailHelp" required />
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className="form-label">
                   Password
                 </label>
-                <input type="password" className="form-control" id="password"  required />
+                <input type="password" className="form-control" id="password" value={loginFormPassword} onChange={handlePasswordChange} required />
               </div>
               
               <div className="mb-3 form-check">
                 <label className="form-check-label">Login as____</label>{" "}
-                <input type="radio" name="loginRole" id="userLoginCheckbox" value="user" />
+                <input type="radio" name="loginRole" id="userLoginCheckbox" value="user" onChange={handleRoleChange} />
                 <label htmlFor="userLoginCheckbox">User</label>
-                <input type="radio" name="loginRole" id="artistLoginCheckbox" value="artist"  />
+                <input type="radio" name="loginRole" id="artistLoginCheckbox" value="artist" onChange={handleRoleChange} />
                 <label htmlFor="artistLoginCheckbox">Artist</label>
               </div>
               <button type="submit" className="btn btn-success">
