@@ -1,0 +1,45 @@
+.row{
+    flex-wrap: nowrap;
+  }
+.artShowcaseRow{
+    display: flex;
+    flex-wrap: wrap;
+}
+.artShowcaseRow .artShowcaseCol{
+    flex: 33.3%;
+    width: auto;
+    overflow: hidden;
+    padding: 5px 5px;
+    height: 100%;
+}
+.artShowcaseRow .artShowcaseCol img{
+    padding: 5px;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    filter: grayscale(0) brightness(1);
+    transition: 0.3s linear;
+}
+.artShowcaseRow .artShowcaseCol img :hover{
+    filter: grayscale(1) brightness(0.5);
+}
+
+.img{
+    width: 16rem !important;
+    height: 12rem;
+    transition: 0.4s;
+}
+
+.card {
+    /*  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+    transition: 0.1s; 
+    width: 90%;
+    height: 90%;
+    margin: 1%;
+    padding: 20px 20px 20px 20px;
+    margin: 5%;
+}
+
+
+
+

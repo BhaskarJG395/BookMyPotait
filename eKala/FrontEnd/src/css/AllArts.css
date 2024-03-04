@@ -1,0 +1,38 @@
+.card-img{
+    width: 10.5rem !important;
+    height: 10.5rem;
+    transition: 0.4s;
+}
+.card-img:hover{
+    transform: scale(1.1);
+}
+
+.view-more{
+    padding: 7px 20px;
+    background-color: #df2020;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.card-text,.card-title,.price,.add_to_cart{
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* .container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+  } */
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    /* padding: 5px; */
+    font-size: 15px;
+    text-align: left;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
