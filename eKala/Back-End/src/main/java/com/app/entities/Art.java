@@ -32,4 +32,15 @@ public class Art extends BaseEntity {
 	
 	@OneToMany(mappedBy = "art",orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	List<Order>order=new ArrayList<Order>();
+	
+	
+	public void addOrder(Order order) {
+		this.order.add(order);
+		order.setArt(this);
+	}
+	
+	public void removeOrder(Order order) {
+		this.order.remove(order);
+		order.setArt(null);
+	}
 }
