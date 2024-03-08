@@ -37,7 +37,31 @@ public class User extends BaseEntity {
 	private List<Payment> payment=new ArrayList<>();
 	@OneToMany(mappedBy = "user", orphanRemoval = true,cascade = CascadeType.ALL)
 	private List<Order>order=new ArrayList<Order>();
-
+	
+	
+	
+//	Helper methods
+	
+	public void addPayment(Payment payment) {
+		this.payment.add(payment);
+		payment.setUser(this);
+	}
+	
+	public void removePayment(Payment payment) {
+		this.payment.remove(payment);
+		payment.setUser(null);
+	}
+	
+	public void addOrder(Order order) {
+		this.order.add(order);
+		order.setUser(this);
+	}
+	
+	public void removeOrder(Order order) {
+		this.order.remove(order);
+		order.setUser(null);
+	}
+	
 	@Override
 	public String toString() {
 		return "User [firstName=" + firstName + ", lastName=" + lastName + ", role=" + role + ", mobileNo=" + mobileNo
