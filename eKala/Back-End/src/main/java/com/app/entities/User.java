@@ -33,8 +33,12 @@ public class User extends BaseEntity {
 	private String email;
 	@Column(length = 15,nullable = false)
 	private String password;
+	
+	//user has payment (1 -- M)
 	@OneToMany(mappedBy = "user", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Payment> payment=new ArrayList<>();
+
+	//User places order (1 -- M)
 	@OneToMany(mappedBy = "user", orphanRemoval = true,cascade = CascadeType.ALL)
 	private List<Order>order=new ArrayList<Order>();
 	

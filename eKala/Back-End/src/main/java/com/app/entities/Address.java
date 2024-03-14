@@ -32,6 +32,7 @@ public class Address extends BaseEntity{
 	
 	private int pincode;
 	
+	//address has user (1 -- 1)
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	@MapsId

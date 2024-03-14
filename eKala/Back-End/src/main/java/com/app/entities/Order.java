@@ -29,12 +29,13 @@ public class Order extends BaseEntity {
 	@Enumerated(EnumType.STRING)
 	private Status orderStatus;
 	
+	//Order to user 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "art_id")
+	// order to art ( M -- 1 )
+	@ManyToOne( fetch = FetchType.LAZY )
+	@JoinColumn( name = "art_id" )
 	private Art art;
-
 }

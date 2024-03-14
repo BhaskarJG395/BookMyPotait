@@ -29,6 +29,7 @@ private String deliveryDesc;
 	@Enumerated(EnumType.STRING)
 	private  Status deliveryStatus;
 	
+	//delivery to payment
 	@OneToOne
 	@MapsId
 	@JoinColumn(name="payment_id")

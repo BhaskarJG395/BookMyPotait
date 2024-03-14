@@ -29,9 +29,13 @@ public class Payment extends BaseEntity {
 	private String paymentDescription;
 	@Enumerated(EnumType.STRING)
 	private Status paymentStatus;
+	
+	// payment -- user (M -- 1)
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="user_id")
 	private User user;
+	
+	// payment to order (1 -- 1)
 	@OneToOne(cascade = CascadeType.ALL)
 	@MapsId
 	@JoinColumn(name="order_id")
@@ -41,6 +45,5 @@ public class Payment extends BaseEntity {
 	public String toString() {
 		return "Payment [amount=" + amount + ", paymentDate=" + paymentDate + ", paymentDescription="
 				+ paymentDescription + ", paymentStatus=" + paymentStatus + ", user=" + user + ", order=" + order + "]";
-	}
-	
+	}	
 }

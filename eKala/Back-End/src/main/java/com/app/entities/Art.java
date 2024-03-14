@@ -29,7 +29,7 @@ public class Art extends BaseEntity {
 	private int quantity;
 	private double price;
 	private String artImagePath;	
-	
+	//art has order (1 -- M)
 	@OneToMany(mappedBy = "art",orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	List<Order>order=new ArrayList<Order>();
 	
