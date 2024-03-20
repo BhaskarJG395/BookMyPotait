@@ -8,4 +8,5 @@ import com.app.dto.UserDto;
 public interface UserService {
 	
 	UserDto addUser(UserDto userdto);
+	List<UserDto>getAllUsers();
 }
