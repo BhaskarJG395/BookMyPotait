@@ -30,8 +30,10 @@ public class UserServiceImpl implements UserService {
 		User user = mapper.map(userdto, User.class);
 		userDao.save(user);
 		String body = "Hello "+user.getFirstName()+" Welcome to eKala";
-		String status = mailsender.sendEmail(user.getEmail(),"User Registration Successful",body);
-		System.out.println(status);
 		return mapper.map(user, UserDto.class);
+	}
+	@Override
+	public List<UserDto> getAllUsers() {
+		return userDao.findAll().stream().map(e -> mapper.map(e, UserDto.class)).collect(Collectors.toList());
 	}
 }
