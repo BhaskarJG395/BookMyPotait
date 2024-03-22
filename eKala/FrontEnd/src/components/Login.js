@@ -23,6 +23,7 @@ export default function Login() {
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleRoleChange = (e) => setSelectedRole(e.target.value);
   //checking email
+
   function checkEmail() {
     for (var u1 of users) {
       if (u1.email === loginFormEmail) {
