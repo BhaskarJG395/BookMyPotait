@@ -1,42 +1,56 @@
-import React from 'react'
-export default function Footer(){
-    return(
-        <div className="row px-4 py-4 cust-bg-col-5">
-            <div className="col-sm-5 mb-3 mb-sm-0">
-                <div className="card">
-                    <div className="card-body">
-                        <h5 className="card-title">Website Name Here</h5>
-                        <p className="card-text">Some description about the page will be here.</p>
+import React from 'react';
+import "../css/footer.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faLinkedin, faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+
+import { NavLink } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
+
+export default function Footer() {
+    return (
+        <div className="px-4 py-4 cust-bg-col-6">
+            <div className='container'>
+                <div className='row'>
+                    <div className='container col-lg-6 '>
+                        <div>
+                            <h4 className='text-white'>About</h4>
+                        </div>
+                        <div >
+                            <p className=' text-xs textCol-1'>Our online platform serves as a vibrant hub for both seasoned creators and emerging talents, showcasing a diverse array of artworks spanning various styles, mediums, and inspirations.
+</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-3'>
+                        <div>
+                            <h4 className='text-white'>Categories</h4>
+                        </div>
+                        <div className='textCol-1'>
+                            <p>Traditional Portraits<br/>Contemporary Portraitss<br/>Self-Portraits</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-3'>
+                    <div>
+                            <h4 className='text-white'>Quick Links</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="col-sm-2 mb-3 mb-sm-0">
-                {/* <div className="card">
-                    <div className="card-body">
-                        <h5 className="card-title">Special title treatment</h5>
-                        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                <hr/>
+                <div className='row'>
+                    <div className='col-lg-9'>
+                        <p className='textCol-1'>Copyright &copy; 2024 All Rights Reserved by eKala</p>
                     </div>
-                </div> */}
-                <img src="../img/footer_bg.png" className='footer=-img' alt='footer image here'></img>
-            </div>
-            <div className="col-sm-5">
-                <div className="card">
-                    <div className="card-body">
-                        <h5 className="card-title">Contact with us</h5>
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Enter Email" aria-label="Search"/>
-                            <button className="btn btn-outline-dark mx-2" type="submit">Subscribe</button>
-                        </form>
-                        <p className="card-text"></p>
-                        {/* <Link to="/" className="btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-envelope" viewBox="0 0 16 16">
-  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
-</svg>
-                        </Link> */}
+                    <div className='col-lg-3 '>
+                        {/* lower right    faLinkedin, faYoutube, faInstagra , faEnvelope, faPhone*/}
+                        <NavLink><FontAwesomeIcon className='text-white px-2' icon={faFacebook} /></NavLink>
+                        <NavLink><FontAwesomeIcon className='text-white px-2' icon={faLinkedin} /></NavLink>
+                        <NavLink><FontAwesomeIcon className='text-white px-2' icon={faYoutube} /></NavLink>
+                        <NavLink><FontAwesomeIcon className='text-white px-2' icon={ faInstagram} /></NavLink>
+                        <NavLink><FontAwesomeIcon className='text-white px-2' icon={faEnvelope} /></NavLink>
+                        <NavLink><FontAwesomeIcon className='text-white px-2' icon={faPhone} /></NavLink>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
