@@ -1,19 +1,18 @@
-import { User } from "../Utils/User";
-import axios from "axios";
-class UserServices{
-    
-    getAllUsers(){
-        return axios.get("/users");
+import axios from 'axios';
+
+class UserService{
+    getAllUser(){
+        return axios.get('/users');
     }
 
-    addUser(u){
-        console.log("in service",u);
-        return axios.post("/users/add",u);
+    addNewUser(user){
+        console.log("add new user function => ",user);
+        
+        return axios.post("/users/add",user);
     }
-
-    getUserById(id){
-        return axios.get("/users/"+id);
+    deleteUser(id){
+        console.log("delete user id = ",id);
+        return axios.delete("/users/delete/"+id,id);
     }
 }
-
-export default new UserServices();
+export default new UserService();
