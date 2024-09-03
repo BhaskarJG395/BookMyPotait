@@ -1,25 +1,38 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/registration.css"
-import UserService from "../services/UserService";
+import UserService from "../Services/UserService";
 
-export default function Registration(props) {
-  const [first_name, setfirst_name] = useState("");
-  const [last_name, setlast_name] = useState("");
-  const [mobile_no, setmobile_no] = useState("");
+function Registration(props) {
+  const navigate=useNavigate();
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
+  const [mobileNo, setMobileNo] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setCPassword] = useState("");
   const [role, setRole] = useState("");
-  
-  //individual handle chainge are given below
-  const handlefirst_nameChange = (e) => setfirst_name(e.target.value);
-  const handlelast_nameChange = (e) => setlast_name(e.target.value);
-  const handlemobile_noChange = (e) => setmobile_no(e.target.value);
+
+  const handlefirstNameChange = (e) => setfirstName(e.target.value);
+  const handlelastNameChange = (e) => setlastName(e.target.value);
+  const handleMobileNoChange = (e) => setMobileNo(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleCPasswordChange = (e) => setCPassword(e.target.value);
   const handleRoleChange = (e) => setRole(e.target.value);
+
+  const handleSubmit =(event) => {
+    event.preventDefault();
+      if(validate()){
+        const user={firstName,lastName,role,mobileNo,email,password};
+        console.log(user);
+
+        UserService.addNewUser(user).then((Response)=>{
+          console.log(Response.data);
+          navigate('/login');
+        })
+      }     
+};
 
   //validation of email-----------------------------------------------------------------------------------
   function validateEmail(){
@@ -51,12 +64,12 @@ export default function Registration(props) {
     return false;
   }
   //validation of mobile number --------------------------------------------------------------------------
-  function validatemobile_no(){
-    if(mobile_no.trim().length===10){
-      document.getElementById("errmobile_no").innerHTML="";
+  function validateMobileNo(){
+    if(mobileNo.trim().length==10){
+      document.getElementById("errMobileNo").innerHTML="";
       return true;
     }
-    document.getElementById("errmobile_no").innerHTML="enter 10 digit mobile number .";
+    document.getElementById("errMobileNo").innerHTML="enter 10 digit mobile number .";
     return false;
   }
   //validation of role -----------------------------------------------------------------------------------
@@ -65,48 +78,44 @@ export default function Registration(props) {
       document.getElementById("errRole").innerHTML="";
       return true;
     }
-    document.getElementById("errRole").innerHTML="select atleast one role";
+    document.getElementById("errRole").innerHTML="select at least one role";
     return false;
   }
   //general validation ----------------------------------------------------------------------------------
   const validate = (e) => {
-    e.preventDefault();
-
+    // e.preventDefault();
     var f1=validateEmail();
     var f2=validatePassword();
     var f3=validateConfirmedPassword();
-    var f4=validatemobile_no();
+    var f4=validateMobileNo();
     var f5=validateRole();
     var flag=f1 && f2 && f3 && f4 && f5;
-    if(flag){
-      alert("Successfully logged in, Now log in to get batter experience.");
-      e.target.submit();
-    }
+    return flag;
   };
 
   return (
     <div>
       <div className='registration-out-container'>
         <div className="container registration-in-container">
-        <form action="/login" className="container registration-form-container" onSubmit={validate}>
+        <form action="/login" className="container registration-form-container" onSubmit={handleSubmit}>
           <h1 style={{color:"white"}}><storong>Registration here</storong></h1>
           {/* Row 1 */}
           <div className="row">
             <div className="col-6">
-              <label htmlFor="first_name">First Name</label>
-              <input type="text" className="form-control" name="first_name" id="first_name" placeholder="Enter first name" value={first_name} onChange={handlefirst_nameChange} required />
+              <label htmlFor="firstName">First Name</label>
+              <input type="text" className="form-control" name="firstName" id="firstName" placeholder="Enter first name" value={firstName} onChange={handlefirstNameChange} required />
             </div>
             <div className="col-6">
-              <label htmlFor="last_name">Last Name</label>
-              <input type="text" className="form-control" name="last_name" id="last_name" placeholder="Enter last name" value={last_name} onChange={handlelast_nameChange} required/>
+              <label htmlFor="lastName">Last Name</label>
+              <input type="text" className="form-control" name="lastName" id="lastName" placeholder="Enter last name" value={lastName} onChange={handlelastNameChange} required/>
             </div>
           </div>
           {/* Row 2 */}
           <div className="row">
             <div className="col-6">
-              <label htmlFor="mobile_no">Mobile No</label>
-              <input type="number" className="form-control" name="mobile_no" id="mobile_no" placeholder="Enter mobile number" value={mobile_no} onChange={handlemobile_noChange} />
-              <p id="errmobile_no" className='text-danger'></p>
+              <label htmlFor="mobileNo">Mobile No</label>
+              <input type="number" className="form-control" name="mobileNo" id="mobileNo" placeholder="Enter mobile number" value={mobileNo} onChange={handleMobileNoChange} />
+              <p id="errMobileNo" className='text-danger'></p>
             </div>
             <div className="col-6">
               <label htmlFor="role">Select a Role</label>
@@ -152,3 +161,4 @@ export default function Registration(props) {
     </div>
   )
 }
+export default Registration;

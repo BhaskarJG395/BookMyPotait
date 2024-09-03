@@ -7,13 +7,7 @@ class ArtService{
     }
 
     deleteArt(id){
-        return axios.delete("/Art/delete/"+id);
-    }
-    uploadImage(artId,imageFile){
-        return axios.post("/Art/add/"+artId,imageFile);
-    }
-    addNewArt(art){
-        return axios.post("/Art/add",art);
+        return axios.delete("/Art/delete/"+id)
     }
 }
 
