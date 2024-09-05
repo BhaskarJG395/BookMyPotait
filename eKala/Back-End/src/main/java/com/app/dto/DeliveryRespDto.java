@@ -2,7 +2,7 @@ package com.app.dto;
 
 import java.time.LocalDate;
 
-import com.app.entities.Status;
+import com.app.entities.StatusEnum;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +17,7 @@ public class DeliveryRespDto {
 	
 	private String description;
 	
-	private  Status deliveryStatus;
+	private  StatusEnum deliveryStatus;
 	
 	private PaymentRespDto payment;
 }

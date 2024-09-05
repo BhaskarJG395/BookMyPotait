@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.app.entities.Order;
-import com.app.entities.Payment;
-import com.app.entities.User;
+import com.app.entities.OrderEntity;
+import com.app.entities.PaymentEntity;
+import com.app.entities.UserEntity;
 
-public interface PaymentDao extends JpaRepository<Payment, Long>{
-	List<Payment> findByUser(User user);
+public interface PaymentDao extends JpaRepository<PaymentEntity, Long>{
+	List<PaymentEntity> findByUser(UserEntity user);
 	//boolean existByOrder(Order order);
 	
 }

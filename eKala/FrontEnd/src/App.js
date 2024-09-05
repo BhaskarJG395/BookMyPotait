@@ -9,16 +9,16 @@ import Feedback from './components/Feedback';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import Contact from './components/Contact';
-import ArtistBook from './components/home/ArtistBook';
 import ArtGallery from './components/home/ArtGallery';
 import Registration from './components/Registration';
 import AllArts from './components/Admin/AllArts';
 import ArtList from './components/Admin/artList';
-import UpdateArt from './components/Admin/UpdateArt'
+import UploadArt from './components/Admin/UploadArt'
 import Delivery from './components/Admin/Delivery';
 import Payment from './components/Admin/Payments';
 import Users from './components/Admin/Users';
 import Login from './components/Login';
+import UploadArtFile from './components/Admin/UploadArtFile'
 import { LoginProvider } from './components/LoginContext';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 // import NewUser1 from './components/newUser';
@@ -46,11 +46,12 @@ function App(){
             <Route path="/arts" element={<AllArts></AllArts>}></Route>
             <Route path="/admin" element={<AdminDetails></AdminDetails>}></Route>
             <Route path="/artList" element={<ArtList></ArtList>}></Route>
-            <Route path="/UpdateArt" element={<UpdateArt></UpdateArt>}></Route>
+            <Route path="/UploadArt" element={<UploadArt></UploadArt>}></Route>
             <Route path="/delivery" element={<Delivery></Delivery>}></Route>
             <Route path="/payments" element={<Payment></Payment>}></Route>
             <Route path="/users" element={<Users></Users>}></Route>
             <Route path="/orders" element={<Orders></Orders>}></Route>
+            <Route path="/fileupload" element={<UploadArtFile></UploadArtFile>}></Route>
             {/* <Route path="/users" element={<submitForm></submitForm>}></Route> */}
             {/* <Route path='/user1' element={<NewUser1></NewUser1>} ></Route>             */}
           </Routes>

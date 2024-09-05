@@ -2,7 +2,7 @@ package com.app.dto;
 
 import java.time.LocalDate;
 
-import com.app.entities.Status;
+import com.app.entities.StatusEnum;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +19,7 @@ public class PaymentRespDto {
 	
 	private String paymentDescription;
 	
-	private Status paymentStatus;
+	private StatusEnum paymentStatus;
 	
 	private UserDto user;
 	

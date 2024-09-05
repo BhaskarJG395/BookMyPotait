@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\Project Work Final\Project\Workspace_eKala_Project\eKala_Project\Back-End"/>
 			<item value="D:\Project Work Final\Project\eKala_Project\Back-End"/>
 		</list>
 		<list key="projectNameTemplate">

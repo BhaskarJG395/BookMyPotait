@@ -14,7 +14,7 @@ public class ArtRespDto {
 	private String artName;
 	
 	private String description;
-	
+
 	private String artType;
 	
 	private int quantity;

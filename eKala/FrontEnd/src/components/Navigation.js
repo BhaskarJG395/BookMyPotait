@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 export default function NavigationBar(){
-    const { isLoggedIn, login, logout,userType,typeUser,typeArtist,typeEmpty } = useLogin(); // now we are using Context for login
+    const { isLoggedIn, logout,userType,typeEmpty ,emptyCart,emptyIdCart} = useLogin(); // now we are using Context for login
     
     const handleLogout = () => {
         // Call logout function
@@ -15,6 +15,8 @@ export default function NavigationBar(){
         if(result){
             logout();
             typeEmpty();
+            emptyCart();
+            emptyIdCart();
         }
       };
 
@@ -62,7 +64,7 @@ export default function NavigationBar(){
             }
 
             {
-                userType=="artist"?(<></>):(<NavLink className="nav-link text-light" to="/cart">(3)<FontAwesomeIcon icon={faShoppingCart} /></NavLink>)
+                userType=="artist"?(<></>):(<NavLink className="nav-link text-light" to="/cart"><FontAwesomeIcon icon={faShoppingCart} /></NavLink>)
             }
 
           </nav>

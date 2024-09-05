@@ -2,11 +2,11 @@ package com.app.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.app.entities.Address;
-import com.app.entities.User;
+import com.app.entities.AddressEntity;
+import com.app.entities.UserEntity;
 
-public interface AddressDao extends JpaRepository<Address, Long> {
+public interface AddressDao extends JpaRepository<AddressEntity, Long> {
 	
-	Address findByUser(User user);
+	AddressEntity findByUser(UserEntity user);
 
 }

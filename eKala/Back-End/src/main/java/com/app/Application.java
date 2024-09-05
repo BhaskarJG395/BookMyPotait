@@ -23,16 +23,18 @@ public class Application {
 	.setPropertyCondition(Conditions.isNotNull());
 		return modelMapper;
 	}
-	
+
 	@Bean
 	public WebMvcConfigurer configure() {
 		return new WebMvcConfigurer() {
-			
 			@Override
-			public void addCorsMappings(CorsRegistry reg) {
-				reg.addMapping("/**").allowedOrigins("*");
-			}
+		    public void addCorsMappings(CorsRegistry registry) {
+		        registry.addMapping("/**")  // Apply CORS settings to all endpoints
+		            .allowedOrigins("http://localhost:3000")  // Allow requests from this origin
+		            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "UPDATE")  // Allow these HTTP methods
+		            .allowedHeaders("*")  // Allow all headers
+		            .allowCredentials(true);  // Allow credentials (e.g., cookies)
+		    }
 		};
 	}
-
 }
