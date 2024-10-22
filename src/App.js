@@ -3,6 +3,9 @@ import './App.css';
 // import { NavLink } from 'react-router-dom'
 import {Routes,Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'swiper/css/bundle'
+import 'swiper/swiper-bundle.css';
+// import 'swiper/swiper-bundle.min.css';
 import NavigationBar from './components/Navigation';
 import HeadingAbout from './components/home/HeadingAbout';
 import Feedback from './components/user/Feedback';

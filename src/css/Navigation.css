@@ -14,7 +14,9 @@
     width: 5em;
     border-radius: 30px;
     padding: 2% 4%;
-    background-color: #5ce1e6;
+    background-color: #5271ff;
+    color: white;
+    font-weight: bold;
 }
 .loginbtn:hover, .signupbtn:hover{
     background-color: black;

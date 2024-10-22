@@ -26,7 +26,9 @@ export default function NavigationBar() {
             <nav className="navbar navbar-expand-sm bg-body-tertiary sticky-top">
                 <div className="container-fluid">
                     {/* Brand logo as a NavLink to the homepage */}
-                    <NavLink className="logo" to="/"><strong>eKala</strong></NavLink>
+                    <div>
+                        <NavLink className="logo" to="/"><strong>Sobikola</strong></NavLink>
+                    </div>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

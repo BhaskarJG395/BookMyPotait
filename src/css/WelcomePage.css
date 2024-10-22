@@ -1,0 +1,61 @@
+/* Styling for the outer container */
+.wel-outer {
+    width: 100%;
+    background-image: url("../image/background.jpg");
+    padding: 2% 0 9% 0;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+/* Styling for the heading */
+.wel-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.head2 {
+    font-weight: bold;
+    color: #5271ff;
+    margin-bottom: 1em;
+}
+
+/* Swiper styling */
+.swiper {
+    height: 300px;
+    max-width: 1000px;
+    margin: 0 auto; /* Center the swiper */
+    overflow: visible; /* Allow overflow for circular effect */
+}
+
+/* Create a smooth scaling effect on the slides */
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image styling for slides */
+.swiper-slide img {
+    margin-top: 40px;
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    object-fit: cover; /* Ensure images cover the area while maintaining aspect ratio */
+}
+
+/* Optional: Style for active slide */
+.swiper-slide-active img{
+    margin-top: 50px;
+    border-radius: 0%;
+    transform: scale(1.3); /* Slightly enlarge active slide */
+    transition: transform 1s ease; /* Smooth transition for active slide */
+}
+
+.swiper-button{
+    border-radius: 50%;
+    margin: 10px ;
+    padding: 7px;
+    background-color: rgba(82,133,255,0.8);
+    color: white;
+}
